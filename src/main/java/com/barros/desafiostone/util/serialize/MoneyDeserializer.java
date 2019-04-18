@@ -3,7 +3,7 @@ package com.barros.desafiostone.util.serialize;
 import java.io.IOException;
 import java.math.BigDecimal;
 
-import com.barros.desafiostone.exception.InputDataException;
+import com.barros.desafiostone.exception.InputDataParseException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.JsonToken;
@@ -28,7 +28,7 @@ public class MoneyDeserializer extends JsonDeserializer<BigDecimal> {
 		return null;
 	}
 
-	private BigDecimal parseToBigDecimal(String input) throws InputDataException {
+	private BigDecimal parseToBigDecimal(String input) throws InputDataParseException {
 		String regexOne = "\\d+";
 		String regexTwo = "\\d+.\\d+";
 
@@ -45,7 +45,7 @@ public class MoneyDeserializer extends JsonDeserializer<BigDecimal> {
 		} else if (input.matches(regexOne) || input.matches(regexTwo)) {
 			return new BigDecimal(input);
 		} else {
-			throw new InputDataException("Dado inválido!");
+			throw new InputDataParseException("Dado inválido!");
 		}
 
 	}
