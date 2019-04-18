@@ -4,7 +4,10 @@ package com.barros.desafiostone.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import com.barros.desafiostone.util.serialize.MoneySerializer;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 public class EmployeeParticipation implements Serializable {
 
@@ -15,6 +18,8 @@ public class EmployeeParticipation implements Serializable {
 	private String nome;
 
 	@JsonProperty(value = "valor_da_participacao")
+	@JsonFormat(shape=JsonFormat.Shape.STRING)
+	@JsonSerialize(using = MoneySerializer.class)
 	private BigDecimal totalParticipation;
 
 	public String getMatricula() {

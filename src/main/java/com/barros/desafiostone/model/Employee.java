@@ -43,8 +43,7 @@ public class Employee implements Serializable {
 		super();
 	}
 
-	public Employee(String matricula, String nome, String area, String cargo, BigDecimal salarioBruto,
-			LocalDate dataAdmissao) {
+	public Employee(String matricula, String nome, String area, String cargo, BigDecimal salarioBruto, LocalDate dataAdmissao) {
 		super();
 		this.matricula = matricula;
 		this.nome = nome;
